@@ -1,4 +1,7 @@
 
+
+
+
 public class Validaciones {
     
     
@@ -9,5 +12,33 @@ public class Validaciones {
            char c = s.charAt(0);
            return Character.isDigit(c) && c != '0';
        }
-    
+     
+    /**
+     *
+     * @param numeroString
+     * @return
+     */
+    public static boolean EsNumero(String numeroString){
+        if(numeroString.isEmpty()){
+            return false;
+        }else{
+            try
+            {   
+                Integer.valueOf(numeroString);
+                return true;
+                /* code */
+            } 
+            catch(NumberFormatException e){
+            //        std::cerr << e.what() << '\n';
+                return false;
+            }
+        }
+    }
 }
+    
+
+
+    
+
+
+

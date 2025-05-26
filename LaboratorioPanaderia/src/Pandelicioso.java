@@ -28,28 +28,20 @@ public class Pandelicioso {
                System.out.println("3.CALCULAR TOTAL PEDIDO");
                System.out.println("4.CONSULAR ESTADO DE PEDIDOS");
                System.out.println("5.APLICAR PROMOCIONES");
+               System.out.println("0. SALIR");
 
                do{
                    opcLetra = escaner.nextLine();
                    //opc = escaner.nextInt();
-                   
-                   if(Validaciones.esNumeroEntre1y9(opcLetra)){
-                       buleano= false;}
-                   else{
-                       System.out.println("VALOR INVALIDO");}
 
-               }while(buleano);
+               }while(!Validaciones.EsNumero(opcLetra));
 
 
-               switch(opc){
-
-
+               switch(opc=Integer.parseInt(opcLetra)){
                    case 1 -> {
+                       
                        pedidos.add(Pandelicioso.agregarPedido(producto));
-                       System.out.println(pedidos.getFirst().mostrarInformacion());
                 }
-
-
                    case 2 -> {
                        System.out.println("Seleccione el pedido al cual desea modificar su estado: ");
                     int i = 0;
@@ -87,6 +79,10 @@ public class Pandelicioso {
         System.out.println("Seleccione el tipo de pedido que desea realizar:");
         System.out.println("( 1 ) Pedido de Pasteleria");
         System.out.println("( 2 ) Pedido de Catering");
+        System.out.println("( 0 ) SALIR");
+        if(Opcion.nextInt()==0){
+            return null;
+        }
         if(Opcion.nextInt()==1){
             Pedidito = new pasteleriaPedido();
             Pedidito.leerDatos(productos);
