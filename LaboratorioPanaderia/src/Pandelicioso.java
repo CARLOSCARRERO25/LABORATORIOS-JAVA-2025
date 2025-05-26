@@ -17,19 +17,18 @@ public class Pandelicioso {
         
         Scanner escaner = new Scanner(System.in);
         Boolean buleano=true;
-        int opc=0;
+        int opc;
         String opcLetra;
-        
         
            do{
              //  menu.limpiarConsola();
                
                System.out.println("MENU");
-               System.out.println("1.AGREGAR PEDIDO");
-               System.out.println("2.MODIFICAR ESTADO PEDIDOS");
-               System.out.println("3.CALCULAR TOTAL PEDIDO");
-               System.out.println("4.CONSULAR ESTADO DE PEDIDOS");
-               System.out.println("5.APLICAR PROMOCIONES");
+               System.out.println("1. AGREGAR PEDIDO");
+               System.out.println("2. MODIFICAR ESTADO PEDIDOS");
+               System.out.println("3. CALCULAR TOTAL PEDIDO");
+               System.out.println("4. CONSULAR ESTADO DE PEDIDOS");
+               System.out.println("5. APLICAR PROMOCIONES");
                System.out.println("0. SALIR");
                               System.out.println(">>");
 
@@ -44,8 +43,16 @@ public class Pandelicioso {
 
                switch(opc=Integer.parseInt(opcLetra)){
                    case 1 -> {
-                       
-                       pedidos.add(Pandelicioso.agregarPedido(producto));
+                       do{
+                        System.out.println("( 1 ) Continuar a agregar pedido");
+                        System.out.println("( 0 ) SALIR");
+                        opcLetra = escaner.nextLine();
+                        if(Validaciones.EsNumero(opcLetra))
+                            if(Integer.parseInt(opcLetra)==0)
+                                break;
+                            else
+                                pedidos.add(Pandelicioso.agregarPedido(producto));
+                       }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) < 0) || (Integer.parseInt(opcLetra)>1));    
                 }
                    case 2 -> {
                        
@@ -82,6 +89,8 @@ public class Pandelicioso {
                         {System.out.println("lista vacia");}
                     else    
                         {
+                       
+                       ;
                     int i = 0;
                     for(Pedido aux: pedidos){
                         System.out.println("( "+i+" ) "+aux.getCodigoPedido() +" - "+ aux.getNombreCliente()+" - "+aux.getEstado());
@@ -100,10 +109,6 @@ public class Pandelicioso {
         System.out.println("Seleccione el tipo de pedido que desea realizar:");
         System.out.println("( 1 ) Pedido de Pasteleria");
         System.out.println("( 2 ) Pedido de Catering");
-        System.out.println("( 0 ) SALIR");
-        if(Opcion.nextInt()==0){
-            return null;
-        }
         if(Opcion.nextInt()==1){
             Pedidito = new pasteleriaPedido();
             Pedidito.leerDatos(productos);
