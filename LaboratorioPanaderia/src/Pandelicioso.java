@@ -33,8 +33,10 @@ public class Pandelicioso {
                do{
                    opcLetra = escaner.nextLine();
                    //opc = escaner.nextInt();
-
-               }while(!Validaciones.EsNumero(opcLetra));
+                   if(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) < 0) || (Integer.parseInt(opcLetra)>5)){
+                       System.out.println("Opcion Invalida");
+                   }
+               }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) < 0) || (Integer.parseInt(opcLetra)>5));
 
 
                switch(opc=Integer.parseInt(opcLetra)){
