@@ -109,7 +109,7 @@ public class Pedido {
         System.out.println("\nCantidad: ");
         this.setCantidad(leer.nextInt());
 
-        this.setPrecioVenta(producto.getCosto() + producto.getCosto() * 0.50);
+        this.setPrecioVenta(this.calcularTotal());
 
         System.out.println("\nIngrese la fecha del pedido");
         leer.nextLine();
@@ -125,7 +125,11 @@ public class Pedido {
     }
 
     public double calcularTotal(){
-        return this.producto.getCosto()*this.cantidad;
+        double Costo, ganancia, total;
+        Costo= this.producto.getCosto();
+        ganancia =Costo +Costo*0.50;
+        total= (Costo+ganancia)*this.cantidad;
+        return total;
     }
 
     public void actualizarEstado(){

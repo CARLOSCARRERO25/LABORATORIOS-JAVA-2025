@@ -38,7 +38,7 @@ public class pasteleriaPedido extends Pedido{
     public double calcularTotal() {
         System.out.println("IVA ESPECIAL PANADERIA DEL 3% DEL TOTAL");
 
-        double total=this.getProducto().getCosto()* this.getCantidad();
+        double total=super.calcularTotal();
         double iva=total*.03;
         total = total + iva;
 
