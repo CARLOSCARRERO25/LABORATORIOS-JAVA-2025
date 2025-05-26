@@ -41,7 +41,7 @@ public class caterinPedido extends Pedido {
     public double calcularTotal() {
         System.out.println("IVA ESPECIAL PARA CATERIN DEL 8% DEL TOTAL");
 
-        double total=this.getProducto().getCosto()* this.getCantidad();
+        double total=super.calcularTotal();
         double iva=total*.08;
         total = total + iva;
 
