@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -13,11 +14,7 @@ public class Validaciones {
            return Character.isDigit(c) && c != '0';
        }
      
-    /**
-     *
-     * @param numeroString
-     * @return
-     */
+
     public static boolean EsNumero(String numeroString){
         if(numeroString.isEmpty()){
             return false;
@@ -34,6 +31,20 @@ public class Validaciones {
             }
         }
     }
+    
+    
+    
+    public static boolean listaVaciaPedidos(List<Pedido> listaPedidos){
+    
+    
+    if(listaPedidos.isEmpty())
+                    {return true;}
+    
+    
+    return false;
+    }
+    
+    
 }
     
 
