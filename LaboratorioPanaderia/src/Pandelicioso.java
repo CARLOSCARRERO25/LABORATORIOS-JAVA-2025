@@ -18,6 +18,7 @@ public class Pandelicioso {
         Scanner escaner = new Scanner(System.in);
         Boolean buleano=true;
         int opc=0;
+        String opcLetra;
         
         
            do{
@@ -26,12 +27,13 @@ public class Pandelicioso {
                System.out.println("2.MODIFICAR ESTADO PEDIDOS");
                System.out.println("3.CALCULAR TOTAL PEDIDO");
                System.out.println("4.CONSULAR ESTADO DE PEDIDOS");
-               System.out.println("4.APLICAR PROMOCIONES");
+               System.out.println("5.APLICAR PROMOCIONES");
 
                do{
-
-                   opc = escaner.nextInt();
-                   if(opc>0 || opc<=4){
+                   opcLetra = escaner.nextLine();
+                   //opc = escaner.nextInt();
+                   
+                   if(Validaciones.esNumeroEntre1y9(opcLetra)){
                        buleano= false;}
                    else{
                        System.out.println("VALOR INVALIDO");}
