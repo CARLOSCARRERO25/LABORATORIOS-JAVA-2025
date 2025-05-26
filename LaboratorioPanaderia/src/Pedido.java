@@ -105,10 +105,31 @@ public class Pedido {
         menu.menuProductos(productos);
 
         this.setProducto(productos[leer.nextInt()]);
-
+        
+        
+        
+        int cantidadProducto;
+        Boolean buleano = true;
+        
+        do{
         System.out.println("\nCantidad: ");
-        this.setCantidad(leer.nextInt());
+        cantidadProducto = leer.nextInt();
+        
+        if(cantidadProducto>this.getProducto().getStock())
+            {System.out.println("NO SE TIENE LA CANTIDAD SOLICITADA");
+             System.out.println("cantidad actual del producto"+this.getProducto().getStock());}
+        else
+            buleano = false;
 
+        }while(buleano);
+                
+        this.setCantidad(cantidadProducto);
+        
+        
+        
+        
+        
+        
         this.setPrecioVenta(this.calcularTotal());
 
         System.out.println("\nIngrese la fecha del pedido");
