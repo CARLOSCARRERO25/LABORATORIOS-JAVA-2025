@@ -117,9 +117,11 @@ public class Pedido {
         
         if(cantidadProducto>this.getProducto().getStock())
             {System.out.println("NO SE TIENE LA CANTIDAD SOLICITADA");
-             System.out.println("cantidad actual del producto"+this.getProducto().getStock());}
+             System.out.println("cantidad actual del producto : "+this.getProducto().getStock());}
         else
-            buleano = false;
+            {buleano = false;
+            this.getProducto().setStock( this.getProducto().getStock() - cantidadProducto );
+            }
 
         }while(buleano);
                 
