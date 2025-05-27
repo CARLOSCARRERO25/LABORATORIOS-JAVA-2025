@@ -99,13 +99,8 @@ public class Pandelicioso {
    public static Pedido agregarPedido(Producto[] productos){
         Pedido Pedidito = new Pedido();
         Scanner Opcion = new Scanner(System.in);
-<<<<<<< HEAD
-        
-        System.out.println("Seleccione el tipo de pedido que desea realizar:");
-        System.out.println("( 1 ) Pedido de Pasteleria");
-        System.out.println("( 2 ) Pedido de Catering");
-        if(Opcion.nextInt()==1){
-=======
+    
+
         String OpcionValida;
         do{
             
@@ -119,7 +114,6 @@ public class Pandelicioso {
         }while(!Validaciones.EsNumero(OpcionValida) || (Integer.parseInt(OpcionValida) < 1) || (Integer.parseInt(OpcionValida)>2));
         
         if(Integer.parseInt(OpcionValida)==1){
->>>>>>> 22f41ffd93f95171638351c986092768e0e6ea9d
             Pedidito = new pasteleriaPedido();
             Pedidito.leerDatos(productos);
         }
@@ -131,7 +125,7 @@ public class Pandelicioso {
    }
    
    
-   public static void imprimirPedidos( List <Pedido> listaPedidos ){
+   public static void imprimirPedidos(List<Pedido> listaPedidos ){
        
        int i=0;
        
