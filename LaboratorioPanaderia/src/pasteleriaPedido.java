@@ -52,7 +52,7 @@ public class pasteleriaPedido extends Pedido{
     }
 
     @Override
-    public boolean mostrarInformacion() {
+    public void mostrarInformacion() {
         System.out.println("Informacion del pedido: \n");
         System.out.println("Codigo: "+this.getCodigoPedido());
         System.out.println("Nombre cliente: "+ this.getNombreCliente());
@@ -80,6 +80,5 @@ public class pasteleriaPedido extends Pedido{
                 System.out.println("Entregado");
                 break;
         }
-        return false;
     }
 }

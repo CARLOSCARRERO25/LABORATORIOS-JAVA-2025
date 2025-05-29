@@ -55,7 +55,7 @@ public class caterinPedido extends Pedido {
     }
 
     @Override
-    public boolean mostrarInformacion() {
+    public void mostrarInformacion() {
         System.out.println("Informacion del pedido: \n");
         System.out.println("Codigo: "+this.getCodigoPedido());
         System.out.println("Nombre cliente: "+ this.getNombreCliente());
@@ -75,6 +75,5 @@ public class caterinPedido extends Pedido {
             case 2 -> System.out.println("En preparacion");
             case 3 -> System.out.println("Entregado");
         }
-        return false;
     }
 }

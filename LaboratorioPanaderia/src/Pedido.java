@@ -162,11 +162,10 @@ public class Pedido {
         System.out.println("( 1 ) Pendiente\n");
         System.out.println("( 2 ) En preparacion\n");
         System.out.println("( 3 ) Entregado\n");
-
         this.setEstado(leer.nextInt());
     }
 
-    public boolean mostrarInformacion(){
+    public void mostrarInformacion(){
         System.out.println("Informacion del pedido: \n");
         System.out.println("Codigo: "+this.getCodigoPedido());
         System.out.println("Nombre cliente: "+ this.getNombreCliente());
@@ -191,6 +190,7 @@ public class Pedido {
                 System.out.println("Entregado");
                 break;
         }
-        return false;
+        System.out.println();
+        System.out.println();
     }
 }

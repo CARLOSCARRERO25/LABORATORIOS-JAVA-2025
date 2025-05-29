@@ -14,7 +14,6 @@ public class Pandelicioso {
         Producto[] producto = {producto1, producto2, producto3};
         
         Scanner escaner = new Scanner(System.in);
-        Boolean buleano=true;
         int opc;
         String opcLetra;
         
@@ -25,8 +24,7 @@ public class Pandelicioso {
                System.out.println("1. AGREGAR PEDIDO");
                System.out.println("2. MODIFICAR ESTADO PEDIDOS");
                System.out.println("3. CALCULAR TOTAL PEDIDO");
-               System.out.println("4. CONSULAR ESTADO DE PEDIDOS");
-               System.out.println("5. APLICAR PROMOCIONES");
+               System.out.println("4. CONSULTAR PEDIDOS");
                System.out.println("0. SALIR");
                System.out.println(">>");
 
@@ -53,42 +51,36 @@ public class Pandelicioso {
                        }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) < 0) || (Integer.parseInt(opcLetra)>1));    
                 }
                    case 2 -> {
-                       
-                    
-                    if(Validaciones.listaVaciaPedidos(pedidos))
-                        {System.out.println("lista vacia");}
-                    else    
-                        {
-                            System.out.println("Seleccione el pedido al cual desea modificar su estado: ");
-                                             
+                        if(Validaciones.listaVaciaPedidos(pedidos)){
+                            System.out.println("lista vacia");}
+                        else{
+                            System.out.println("Seleccione el pedido al cual desea modificar su estado: ");                 
                             Pandelicioso.imprimirPedidos(pedidos);
-
-                        
-                        Scanner opcion = new Scanner(System.in);
-                        pedidos.get(opcion.nextInt()).actualizarEstado();}
-                    
-                }
-                   case 3 -> {
-                       
+                            Scanner opcion = new Scanner(System.in);
+                            pedidos.get(opcion.nextInt()).actualizarEstado();}
+                        }
+                   case 3 ->{
                        if(Validaciones.listaVaciaPedidos(pedidos))
                         {System.out.println("lista vacia");}
-                    else    
-                        {
-                       System.out.println("Seleccione el pedido al cual desea calcular su precio total: ");
-                    Scanner opcion = new Scanner(System.in);
-                    
-                    Pandelicioso.imprimirPedidos(pedidos);
-                    pedidos.get(opcion.nextInt()).calcularTotal();
-                }}
+                    else{
+                        System.out.println("Seleccione el pedido al cual desea calcular su precio total: ");
+                        Scanner opcion = new Scanner(System.in);
+                        Pandelicioso.imprimirPedidos(pedidos);
+                        opcLetra =opcion.nextLine();
+                        System.out.println("El total del pedido de "+pedidos.get(Integer.parseInt(opcLetra)).getNombreCliente()+" es de: "+pedidos.get(Integer.parseInt(opcLetra)).calcularTotal());
+                        }
+                   }
                    case 4 -> {
                        if(Validaciones.listaVaciaPedidos(pedidos))
-                        {System.out.println("lista vacia");}
-                    else    
-                        {
-                            
-                    Pandelicioso.imprimirPedidos(pedidos);
-                    
-                        }   }
+                            {System.out.println("lista vacia");}
+                        else{
+                           do{
+                            Pandelicioso.imprimirPedidos(pedidos);
+                            opcLetra=escaner.nextLine();
+                            pedidos.get(Integer.parseInt(opcLetra)).mostrarInformacion();
+                           }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) <0) || (Integer.parseInt(opcLetra)>pedidos.size()+1));
+                       }   
+                   }
                    case 0 -> System.out.println("HASTA LUEGO...");
                }
                
@@ -100,7 +92,6 @@ public class Pandelicioso {
         Pedido Pedidito = new Pedido();
         Scanner Opcion = new Scanner(System.in);
     
-
         String OpcionValida;
         do{
             
@@ -130,8 +121,8 @@ public class Pandelicioso {
        int i=0;
        
        for(Pedido aux: listaPedidos){
-                       System.out.println("( "+i+" ) "+aux.getCodigoPedido() + aux.getNombreCliente());
-                    }
+           System.out.println("( "+i+" )\t"+aux.getCodigoPedido() + "\t"+aux.getNombreCliente());
+       }
        
    }
    
