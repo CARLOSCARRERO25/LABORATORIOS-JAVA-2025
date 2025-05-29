@@ -176,6 +176,7 @@ public class Pedido {
         System.out.println("Hora: "+this.getHoraPedido());
         System.out.println("Tiempo de preparacion: "+this.getTiempoPreparacion());
         System.out.print("Estado: ");
+        
         switch (this.estado){
             case 0:
                 System.out.println("Cancelado");
@@ -190,7 +191,6 @@ public class Pedido {
                 System.out.println("Entregado");
                 break;
         }
-        System.out.println();
-        System.out.println();
+        System.out.println("\n\n");
     }
 }

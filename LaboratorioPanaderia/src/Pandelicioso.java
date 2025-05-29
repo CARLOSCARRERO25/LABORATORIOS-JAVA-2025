@@ -54,19 +54,25 @@ public class Pandelicioso {
                         if(Validaciones.listaVaciaPedidos(pedidos)){
                             System.out.println("lista vacia");}
                         else{
-                            System.out.println("Seleccione el pedido al cual desea modificar su estado: ");                 
-                            Pandelicioso.imprimirPedidos(pedidos);
-                            Scanner opcion = new Scanner(System.in);
-                            pedidos.get(opcion.nextInt()).actualizarEstado();}
+                            do{
+                                System.out.println("Seleccione el pedido al cual desea modificar su estado: ");                 
+                                Pandelicioso.imprimirPedidos(pedidos);
+                                Scanner opcion = new Scanner(System.in);
+                                opcLetra = opcion.nextLine();
+                            }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) <0) || (Integer.parseInt(opcLetra)>pedidos.size()+1));
+                            
+                            pedidos.get(Integer.parseInt(opcLetra)).actualizarEstado();}
                         }
                    case 3 ->{
                        if(Validaciones.listaVaciaPedidos(pedidos))
                         {System.out.println("lista vacia");}
                     else{
-                        System.out.println("Seleccione el pedido al cual desea calcular su precio total: ");
-                        Scanner opcion = new Scanner(System.in);
-                        Pandelicioso.imprimirPedidos(pedidos);
-                        opcLetra =opcion.nextLine();
+                        do{
+                            System.out.println("Seleccione el pedido al cual desea calcular su precio total: ");
+                            Scanner opcion = new Scanner(System.in);
+                            Pandelicioso.imprimirPedidos(pedidos);
+                            opcLetra =opcion.nextLine();
+                        }while(!Validaciones.EsNumero(opcLetra) || (Integer.parseInt(opcLetra) <0) || (Integer.parseInt(opcLetra)>pedidos.size()+1));
                         System.out.println("El total del pedido de "+pedidos.get(Integer.parseInt(opcLetra)).getNombreCliente()+" es de: "+pedidos.get(Integer.parseInt(opcLetra)).calcularTotal());
                         }
                    }
@@ -122,6 +128,7 @@ public class Pandelicioso {
        
        for(Pedido aux: listaPedidos){
            System.out.println("( "+i+" )\t"+aux.getCodigoPedido() + "\t"+aux.getNombreCliente());
+           i++;
        }
        
    }
